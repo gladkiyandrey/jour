@@ -70,6 +70,7 @@ body {
   padding-top: 12px;
   display: flex;
   justify-content: center;
+  gap: 18px;
 }
 
 .header {
