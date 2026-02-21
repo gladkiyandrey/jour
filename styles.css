@@ -67,7 +67,7 @@ body {
 }
 
 .top-logo-bar {
-  padding-top: 12px;
+  padding-top: 16px;
   display: flex;
   justify-content: center;
   gap: 18px;
@@ -77,7 +77,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 18px 0 26px;
+  padding: 14px 0 22px;
 }
 
 .logo {
@@ -142,10 +142,10 @@ body {
 }
 
 .tracker {
-  margin-top: 20px;
+  margin-top: 14px;
   display: grid;
   grid-template-columns: 1.2fr 0.9fr;
-  gap: 18px;
+  gap: 16px;
   align-items: stretch;
 }
 
@@ -154,7 +154,7 @@ body {
   border: 1px solid var(--line);
   border-radius: 12px;
   background: linear-gradient(180deg, rgba(31, 38, 61, 0.94), rgba(18, 23, 38, 0.96));
-  padding: 18px 18px 10px;
+  padding: 16px 16px 10px;
 }
 
 .tracker-chart-wrap {
@@ -179,6 +179,7 @@ body {
   padding: 14px 16px;
   width: 100%;
   margin-left: 0;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
 .ai-advice h4 {
@@ -220,21 +221,21 @@ body {
 }
 
 .score-row {
-  margin: 10px auto 0;
+  margin: 12px auto 0;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 10px;
-  max-width: 700px;
+  gap: 8px;
+  max-width: 680px;
 }
 
 .discipline-score {
-  min-height: 58px;
+  min-height: 56px;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: 6px;
-  padding: 8px 10px;
+  padding: 8px 9px;
   border-radius: 10px;
   border: 1px solid rgba(121, 133, 173, 0.38);
   background: linear-gradient(180deg, rgba(30, 38, 62, 0.88), rgba(15, 21, 36, 0.92));
@@ -243,7 +244,7 @@ body {
 }
 
 .discipline-score span {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.03em;
@@ -251,7 +252,7 @@ body {
 }
 
 .discipline-score strong {
-  font-size: 18px;
+  font-size: 17px;
   line-height: 1;
   letter-spacing: -0.02em;
 }
@@ -268,7 +269,6 @@ body {
 .metric-green {
   border-color: rgba(69, 197, 137, 0.6);
   background: linear-gradient(180deg, rgba(21, 82, 59, 0.45), rgba(14, 30, 25, 0.94));
-  padding: 0;
 }
 
 .metric-green strong {
@@ -278,7 +278,6 @@ body {
 .metric-red {
   border-color: rgba(255, 116, 142, 0.6);
   background: linear-gradient(180deg, rgba(102, 30, 47, 0.45), rgba(37, 13, 20, 0.94));
-  padding: 0;
 }
 
 .metric-red strong {
@@ -286,9 +285,9 @@ body {
 }
 
 .chart-legend {
-  margin-top: 10px;
+  margin-top: 8px;
   display: flex;
-  gap: 16px;
+  gap: 14px;
   flex-wrap: wrap;
 }
 
