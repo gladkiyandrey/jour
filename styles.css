@@ -516,6 +516,19 @@ body {
   padding: 0 12px;
 }
 
+.field.error select,
+.field.error input {
+  border-color: rgba(255, 109, 136, 0.85);
+  box-shadow: 0 0 0 1px rgba(255, 109, 136, 0.35);
+}
+
+.modal-error {
+  margin-top: 10px;
+  min-height: 18px;
+  font-size: 12px;
+  color: #ffb4c3;
+}
+
 .modal-actions {
   margin-top: 18px;
   display: flex;

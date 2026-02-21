@@ -89,6 +89,7 @@ const modal = document.getElementById('day-modal');
 const modalDate = document.getElementById('modal-date');
 const modalResult = document.getElementById('modal-result');
 const modalDeposit = document.getElementById('modal-deposit');
+const modalError = document.getElementById('modal-error');
 const modalCancel = document.getElementById('modal-cancel');
 const modalSave = document.getElementById('modal-save');
 
@@ -131,10 +132,18 @@ function formatDateKey(year, month, day) {
 
 function openDayModal(dateKey) {
   selectedDateKey = dateKey;
-  const current = dayData[dateKey] || { result: 1, variant: 'pos', deposit: '' };
+  const current = dayData[dateKey] || { result: 1, variant: '', deposit: '' };
   modalDate.textContent = dateKey;
-  modalResult.value = current.variant || (Number(current.result) === -1 ? 'neg' : 'pos');
+  modalResult.value =
+    current.variant === 'neg' || current.variant === 'pos' || current.variant === 'pos-outline'
+      ? current.variant
+      : '';
   modalDeposit.value = current.deposit;
+  if (modalError) {
+    modalError.textContent = '';
+  }
+  modalResult.closest('.field')?.classList.remove('error');
+  modalDeposit.closest('.field')?.classList.remove('error');
   modal.classList.add('open');
   modal.setAttribute('aria-hidden', 'false');
 }
@@ -428,14 +437,36 @@ if (modalSave) {
       return;
     }
 
-    const variant = modalResult.value === 'neg' ? 'neg' : modalResult.value === 'pos-outline' ? 'pos-outline' : 'pos';
+    const variant =
+      modalResult.value === 'neg' || modalResult.value === 'pos' || modalResult.value === 'pos-outline'
+        ? modalResult.value
+        : '';
+    const rawDeposit = String(modalDeposit.value ?? '').trim();
     const result = variant === 'neg' ? -1 : 1;
-    const deposit = Number(modalDeposit.value);
+    const deposit = Number(rawDeposit);
+    const hasValidDeposit = rawDeposit !== '' && Number.isFinite(deposit) && deposit >= 0;
+    const hasVariant = variant !== '';
+
+    modalResult.closest('.field')?.classList.toggle('error', !hasVariant);
+    modalDeposit.closest('.field')?.classList.toggle('error', !hasValidDeposit);
+
+    if (!hasVariant || !hasValidDeposit) {
+      if (modalError) {
+        if (!hasVariant && !hasValidDeposit) {
+          modalError.textContent = 'Choose day type and enter deposit amount.';
+        } else if (!hasVariant) {
+          modalError.textContent = 'Choose day type.';
+        } else {
+          modalError.textContent = 'Enter deposit amount.';
+        }
+      }
+      return;
+    }
 
     dayData[selectedDateKey] = {
       result,
       variant,
-      deposit: Number.isFinite(deposit) && deposit >= 0 ? deposit : 0,
+      deposit,
     };
 
     saveDayData();
@@ -450,6 +481,24 @@ document.addEventListener('keydown', (event) => {
     closeDayModal();
   }
 });
+
+if (modalResult) {
+  modalResult.addEventListener('change', () => {
+    modalResult.closest('.field')?.classList.remove('error');
+    if (modalError) {
+      modalError.textContent = '';
+    }
+  });
+}
+
+if (modalDeposit) {
+  modalDeposit.addEventListener('input', () => {
+    modalDeposit.closest('.field')?.classList.remove('error');
+    if (modalError) {
+      modalError.textContent = '';
+    }
+  });
+}
 
 loadDayData();
 renderCalendar();
