@@ -66,11 +66,17 @@ body {
   margin: 0 auto;
 }
 
+.top-logo-bar {
+  padding-top: 12px;
+  display: flex;
+  justify-content: center;
+}
+
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 26px 0;
+  padding: 18px 0 26px;
 }
 
 .logo {
