@@ -138,7 +138,8 @@ function openDayModal(dateKey) {
     current.variant === 'neg' || current.variant === 'pos' || current.variant === 'pos-outline'
       ? current.variant
       : '';
-  modalDeposit.value = current.deposit;
+  const safeDeposit = Number(current.deposit);
+  modalDeposit.value = Number.isFinite(safeDeposit) && safeDeposit > 0 ? String(safeDeposit) : '';
   if (modalError) {
     modalError.textContent = '';
   }
@@ -444,7 +445,7 @@ if (modalSave) {
     const rawDeposit = String(modalDeposit.value ?? '').trim();
     const result = variant === 'neg' ? -1 : 1;
     const deposit = Number(rawDeposit);
-    const hasValidDeposit = rawDeposit !== '' && Number.isFinite(deposit) && deposit >= 0;
+    const hasValidDeposit = rawDeposit !== '' && Number.isFinite(deposit) && deposit > 0;
     const hasVariant = variant !== '';
 
     modalResult.closest('.field')?.classList.toggle('error', !hasVariant);
@@ -453,11 +454,11 @@ if (modalSave) {
     if (!hasVariant || !hasValidDeposit) {
       if (modalError) {
         if (!hasVariant && !hasValidDeposit) {
-          modalError.textContent = 'Choose day type and enter deposit amount.';
+          modalError.textContent = 'Choose day type and enter deposit amount (must be greater than 0).';
         } else if (!hasVariant) {
           modalError.textContent = 'Choose day type.';
         } else {
-          modalError.textContent = 'Enter deposit amount.';
+          modalError.textContent = 'Enter deposit amount (must be greater than 0).';
         }
       }
       return;
