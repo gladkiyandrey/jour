@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cryptolly Landing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-bg"></div>
+    <header class="header container">
+      <a class="logo" href="#">
+        <span class="logo-dot"></span>
+        <span>Cryptolly.</span>
+      </a>
+      <nav class="nav">
+        <a href="#">Exchanges</a>
+        <a href="#">Pricing</a>
+        <a href="#">Wallet</a>
+        <a href="#">Company</a>
+        <a href="#">Blog</a>
+      </nav>
+      <div class="header-actions">
+        <button class="btn ghost">Sign In</button>
+        <button class="btn primary">Get Started</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="tracker container">
+        <div class="tracker-chart-wrap">
+          <div class="tracker-head">
+            <div>
+              <h2>Day Tracker</h2>
+              <p>Chart legend</p>
+            </div>
+          </div>
+          <div class="chart-legend" aria-label="Chart legend">
+            <span class="legend-item">
+              <i class="legend-line yellow"></i>
+              <b>Yellow</b>
+              <small>consistency</small>
+            </span>
+            <span class="legend-item">
+              <i class="legend-line blue"></i>
+              <b>Blue</b>
+              <small>deposit size</small>
+            </span>
+          </div>
+          <svg id="tracker-chart" class="tracker-chart" viewBox="0 0 520 280" preserveAspectRatio="none" aria-label="Tracker chart">
+            <defs>
+              <filter id="yellow-glow-filter" x="-25%" y="-25%" width="150%" height="150%">
+                <feGaussianBlur stdDeviation="1.8" result="blur"></feGaussianBlur>
+                <feMerge>
+                  <feMergeNode in="blur"></feMergeNode>
+                  <feMergeNode in="SourceGraphic"></feMergeNode>
+                </feMerge>
+              </filter>
+              <filter id="blue-glow-filter" x="-25%" y="-25%" width="150%" height="150%">
+                <feGaussianBlur stdDeviation="1.8" result="blur"></feGaussianBlur>
+                <feMerge>
+                  <feMergeNode in="blur"></feMergeNode>
+                  <feMergeNode in="SourceGraphic"></feMergeNode>
+                </feMerge>
+              </filter>
+            </defs>
+            <g class="tracker-grid">
+              <line x1="20" y1="30" x2="500" y2="30"></line>
+              <line x1="20" y1="80" x2="500" y2="80"></line>
+              <line x1="20" y1="130" x2="500" y2="130"></line>
+              <line x1="20" y1="180" x2="500" y2="180"></line>
+              <line x1="20" y1="230" x2="500" y2="230"></line>
+            </g>
+            <path id="result-path-glow" class="line-yellow-glow" d=""></path>
+            <path id="deposit-path-glow" class="line-blue-glow" d=""></path>
+            <path id="result-path" class="line-yellow" d=""></path>
+            <path id="deposit-path" class="line-blue" d=""></path>
+          </svg>
+          <div class="score-row">
+            <div id="discipline-score" class="discipline-score metric-score">
+              <span>Discipline score</span>
+              <strong>0%</strong>
+            </div>
+            <div id="best-green-streak" class="discipline-score metric-green">
+              <span>Green streak</span>
+              <strong>0</strong>
+            </div>
+            <div id="best-red-streak" class="discipline-score metric-red">
+              <span>Red streak</span>
+              <strong>0</strong>
+            </div>
+          </div>
+        </div>
+        <div class="tracker-side">
+          <div class="tracker-calendar-wrap">
+            <div class="calendar-head">
+              <button id="month-prev" class="month-arrow" type="button" aria-label="Previous month">‹</button>
+              <h3 id="month-label">Month 2026</h3>
+              <button id="month-next" class="month-arrow" type="button" aria-label="Next month">›</button>
+            </div>
+            <div class="weekdays">
+              <span>Mon</span>
+              <span>Tue</span>
+              <span>Wed</span>
+              <span>Thu</span>
+              <span>Fri</span>
+              <span>Sat</span>
+              <span>Sun</span>
+            </div>
+            <div id="calendar-grid" class="calendar-grid"></div>
+          </div>
+          <div class="ai-advice">
+            <h4>
+              <img class="ai-icon" src="assets/Group.svg" alt="" aria-hidden="true" />
+              AI discipline advice
+            </h4>
+            <p id="ai-advice-text">Track at least 5 days to get a practical discipline recommendation.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="hero container">
+        <h1>A trusted and secure cryptocurrency exchange.</h1>
+        <p>
+          You guide to the world of an open financial system. Get started with the easiest and most secure platform to buy and trade cryptocurrency.
+        </p>
+        <button class="btn primary large">Get Started Now</button>
+
+        <div class="market-board">
+          <div class="coin-card">
+            <p class="coin-name">Bitcoin <span>BTC</span></p>
+            <p class="coin-price">USD 53,260.20</p>
+            <div class="chart"></div>
+            <p class="up">+ 2.11%</p>
+          </div>
+          <div class="coin-card">
+            <p class="coin-name">Ethereum <span>ETH</span></p>
+            <p class="coin-price">USD 1,643.80</p>
+            <div class="chart red"></div>
+            <p class="down">- 1.53%</p>
+          </div>
+          <div class="coin-card">
+            <p class="coin-name">Binance Coin <span>BNB</span></p>
+            <p class="coin-price">USD 247.71</p>
+            <div class="chart"></div>
+            <p class="up">+ 0.33%</p>
+          </div>
+          <div class="coin-card">
+            <p class="coin-name">XRP <span>XRP</span></p>
+            <p class="coin-price">USD 0.5464</p>
+            <div class="chart red"></div>
+            <p class="down">- 1.49%</p>
+          </div>
+          <div class="coin-card">
+            <p class="coin-name">Tether <span>USDT</span></p>
+            <p class="coin-price">USD 0.9999</p>
+            <div class="chart"></div>
+            <p class="up">+ 0.11%</p>
+          </div>
+          <div class="coin-card">
+            <p class="coin-name">Achain <span>ACT</span></p>
+            <p class="coin-price">USD 40,998.21</p>
+            <div class="chart"></div>
+            <p class="up">+ 0.87%</p>
+          </div>
+          <div class="coin-card">
+            <p class="coin-name">Origin Protocol <span>OGN</span></p>
+            <p class="coin-price">USD 3,464.21</p>
+            <div class="chart"></div>
+            <p class="up">+ 2.11%</p>
+          </div>
+          <div class="coin-card">
+            <p class="coin-name">IoT Token <span>ITC</span></p>
+            <p class="coin-price">USD 1,443.02</p>
+            <div class="chart"></div>
+            <p class="up">+ 3.44%</p>
+          </div>
+          <div class="coin-card view-all">
+            <button class="btn ghost small">View All Assets</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="section container">
+        <h2>The most trusted cryptocurrency platform.</h2>
+        <p class="subtitle">Cryptolly has a variety of features that make it the best place to start trading.</p>
+        <div class="features-grid">
+          <article class="feature-card">
+            <div class="icon orange"></div>
+            <h3>Portfolio Manager</h3>
+            <p>Buy and sell popular digital currencies, keep track of them in one place.</p>
+          </article>
+          <article class="feature-card active">
+            <div class="icon violet"></div>
+            <h3>Mobile Apps</h3>
+            <p>Stay on top of the markets with the Cryptolly app for Android and iOS.</p>
+          </article>
+          <article class="feature-card">
+            <div class="icon cyan"></div>
+            <h3>Vault protection</h3>
+            <p>For added security, store your funds in a vault with time delayed withdrawals.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section container payment">
+        <h2>One click, instant payout with credit or debit card.</h2>
+        <p class="subtitle">Become a crypto owner in minutes using your credit card and easily purchase top cryptocurrencies.</p>
+        <div class="payment-widget">
+          <div class="tabs">
+            <button class="active">Buy</button>
+            <button>Sell</button>
+          </div>
+          <p class="small-text">1 BTC is roughly</p>
+          <p class="price">53,260.20 <span>USD</span></p>
+          <div class="input-row">
+            <span>500$</span>
+            <span>USD</span>
+          </div>
+          <div class="input-row">
+            <span>0.0151</span>
+            <span>BTC</span>
+          </div>
+          <button class="btn primary full">Buy Now</button>
+        </div>
+        <p class="payments-note">We accept payments with many methods:</p>
+        <div class="payments-logos">Mastercard · VISA · G Pay · PayPal</div>
+      </section>
+
+      <section class="section container values">
+        <h2>We are the most trusted cryptocurrency platform.</h2>
+        <p class="subtitle">We believe Cryptolly is here to stay and this means we're building to earn which deserves trust and keeps everyone in.</p>
+        <div class="values-grid">
+          <article>
+            <div class="mini-icon"></div>
+            <h3>Clarity</h3>
+            <p>We help you make sense of the coin, the terms, and the current market conditions.</p>
+          </article>
+          <article>
+            <div class="mini-icon cyan"></div>
+            <h3>Confidence</h3>
+            <p>Our markets are always up to date, enabling certainty when you execute.</p>
+          </article>
+          <article>
+            <div class="mini-icon violet"></div>
+            <h3>Community</h3>
+            <p>We support the crypto community, putting users first and building trust.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section container media">
+        <h2>What media says about Cryptolly?</h2>
+        <div class="media-slider">
+          <button class="arrow" id="media-prev" type="button" aria-label="Previous quote">‹</button>
+          <div class="media-card" id="media-card">
+            <h3 id="media-source">Forbes</h3>
+            <p id="media-quote">“Derivative exchange American-based Cryptolly believes they will continue to grow in 2026.”</p>
+          </div>
+          <button class="arrow" id="media-next" type="button" aria-label="Next quote">›</button>
+        </div>
+      </section>
+
+      <section class="section container app">
+        <h2>Build your crypto portfolio anywhere.</h2>
+        <p class="subtitle">A powerful key to crypto where you can discover, buy, sell, and trade cryptos on the go.</p>
+        <div class="app-mockup"></div>
+        <p class="small-text">Get the Cryptolly Wallet Mobile App Now!</p>
+        <div class="store-buttons">
+          <button class="btn ghost">Google Play</button>
+          <button class="btn ghost">App Store</button>
+        </div>
+      </section>
+
+      <section class="container cta">
+        <p>Ready to start trading cryptocurrency?</p>
+        <h2>New users can earn up to $80 in crypto rewards.</h2>
+        <div class="cta-row">
+          <input type="email" placeholder="Enter your email address" />
+          <button class="btn primary">Get Started</button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer container">
+      <div class="footer-col">
+        <a class="logo" href="#">
+          <span class="logo-dot"></span>
+          <span>Cryptolly.</span>
+        </a>
+        <p>Your best crypto partner.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links.</h4>
+        <a href="#">Buy/Sell</a>
+        <a href="#">Trade Now</a>
+        <a href="#">Pricing</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#">Wallets</a>
+        <a href="#">Company</a>
+      </div>
+      <div class="footer-col">
+        <h4>Submit for updates.</h4>
+        <p>Subscribe to get updates and notify our exchange and services.</p>
+        <div class="footer-input">
+          <input type="email" placeholder="Enter your email address" />
+          <button class="btn primary small">Send</button>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Copyright by xL. All rights reserved.</p>
+        <div>
+          <a href="#">Term of Service</a>
+          <a href="#">Privacy Policy</a>
+        </div>
+      </div>
+    </footer>
+
+    <div id="day-modal" class="modal-backdrop" aria-hidden="true">
+      <div class="day-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <h3 id="modal-title">Day Settings</h3>
+        <p id="modal-date" class="modal-date">-</p>
+        <label class="field">
+          <span>Result</span>
+          <select id="modal-result">
+            <option value="neg">-1 (red)</option>
+            <option value="pos">+1 (green)</option>
+            <option value="pos-outline">+1 (green + white outline)</option>
+          </select>
+        </label>
+        <label class="field">
+          <span>Deposit size</span>
+          <input id="modal-deposit" type="number" min="0" step="0.01" placeholder="Enter deposit amount" />
+        </label>
+        <div class="modal-actions">
+          <button id="modal-cancel" class="btn ghost" type="button">Cancel</button>
+          <button id="modal-save" class="btn primary" type="button">Save</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
